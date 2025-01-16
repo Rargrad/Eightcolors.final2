@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/main_layout}">
+<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+<title>숙소 방 정보</title>
+<meta charset="UTF-8">
+<th:block layout:fragment="content">
+  <div class="row my-5">
+    <div class="col-10 offset-1">
+
+      <div class="row text-center">
+        <div class="col">
+          <h2 class="fs-3 fw-bold">숙소 정보</h2>
+        </div>
+      </div>
+
+      <!--  대분류  -->
+      <div class="row my-3 d-flex justify-content-center align-items-center">
+        <form name="searchForm" id="searchForm" action="residenceRooms"
+              style="border: 1px solid black; border-radius: 10px; padding: 25px 15px;
+              width: 500px; height: 150px;">
+
+          <div class="row">
+            <!-- 왼쪽 위 (circuit) -->
+            <div class="col-6 form-group">
+              <select name="circuit" id="circuit" class="text-center form-select">
+                <option selected>-도/시-</option>
+              </select>
+            </div>
+
+            <!-- 오른쪽 위 (city) -->
+            <div class="col-6 form-group">
+              <select name="city" id="city" class="text-center form-select">
+                <option selected>-시/구/군-</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- 왼쪽 아래 (type) -->
+            <div class="col-6 my-3 form-group">
+              <select name="type" class="text-center form-select">
+                <option selected>-종류-</option>
+                <option value="hotel">호텔</option>
+                <option value="motel">모텔</option>
+                <option value="resort">리조트</option>
+              </select>
+            </div>
+
+            <!-- 오른쪽 아래 (검색 버튼) -->
+            <div class="col-6 my-3 form-group">
+              <button type="submit" class="btn btn-primary w-100">검색</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--  정렬 옵션 및 검색리스트  -->
+      <div class="row">
+        <div class="">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="#" class="text-decoration-none text-black" id="link-review">리뷰</a></li>
+            <li class="list-inline-item">
+              <a href="#" class="text-decoration-none text-black" id="link-price">가격</a></li>
+            <li class="list-inline-item">
+              <a href="#" class="text-decoration-none text-black" id="link-discount">할인</a></li>
+            <li class="list-inline-item">
+              <a href="#" class="text-decoration-none text-black" id="link-surroundings">주변</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <ul class="list" style="list-style-type: none">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{js/residLocations.js}"></script>
+</th:block>
+</html>
